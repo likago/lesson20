@@ -83,6 +83,15 @@
                 itemsArray.push(inputText);
                 document.body.appendChild(li);
             });
+            const peopleArray = [
+            { name: 'lika', surname: 'meskhi', age: 30, profession: 'Engineer' },
+            { name: 'nika', surname: 'gotua', age: 15, profession: 'none' },
+            { name: 'nana', surname: 'kartozia', age: 35, profession: 'Doctor' },
+            { name: 'eka', surname: 'sordia', age: 28, profession: 'Designer' },
+            { name: 'gio', surname: 'xunjgua', age: 40, profession: 'Manager' }
+            ];
+            let newPeopleArray = peopleArray.filter(person => person.age > 18);
+            console.log (newPeopleArray);
 
 
 
