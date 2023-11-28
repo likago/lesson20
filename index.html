@@ -23,6 +23,7 @@
                 <input type="password" name="confirmPassword" required>
                 <label for="confirmPassword">confirm password</label>
             </div>
+            <textarea></textarea>
             <div>
                 <button>registration</button>
             </div>
@@ -50,12 +51,17 @@
                 throw new Error("password does not match")
                 return
             }
+            if (form.textarea.value.length > 100) {
+                throw new Error("more than 100")
+                return
+            }
             const data = {
                 first_name: form.first_name.value,
                 last_name: form.larst_name.value,
                 email: form.email.value,
                 password: form.password.value,
                 confirmPassword: form.confirmPassword.value
+                textarea: form.textarea.value
             }
             console.log(data)
             } catch (e) {
