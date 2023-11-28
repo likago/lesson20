@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <form id="sign-up" name="signUp">
+            <div>
+                <input type="text" name="first_name" required>
+                <label for="first_name">first name</label>
+            </div>
+            <div>
+                <input type="text" name="last_name" required>
+                <label for="last-name" required>last name</label>
+            </div>
+            <div>
+                <input type="email" name="email" required>
+                <label for="email">email</label>
+            </div>
+            <div>
+                <input type="password" name="password" required>
+                <label for="password">password</label>
+            </div>
+            <div>
+                <input type="password" name="confirmPassword" required>
+                <label for="confirmPassword">confirm password</label>
+            </div>
+            <div>
+                <button>send</button>
+            </div>
+        </form> 
+        <script>
+            const form = document.getElementById('sign-up');
+            const input = document.querySelector('input[type="number"]');
+            form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            try {
+            let form = document.forms.signUp
+            if (form.first_name.value.length < 6) {
+                throw new Error("first name must be more than 5 characters")
+                return
+            } 
+            if (form.last_name.value.length < 6) {
+                throw new Error("last name must be more than 5 characters")
+                return
+            } 
+            if (form.password.value.length < 6) {
+                throw new Error("password must be more than 5 characters")
+                return
+            }
+            if (form.password.value !== form.confirmPassword.value) {
+                throw new Error("password does not match")
+                return
+            }
+            const data = {
+                first_name: form.first_name.value,
+                last_name: form.larst_name.value,
+                email: form.email.value,
+                password: form.password.value,
+                confirmPassword: form.confirmPassword.value
+            }
+            console.log(data)
+            } catch (e) {
+            const p = document.createElement('p');
+            p.textContent = e.message;
+            p.style.color = "red"
+            document.body.appendChild(p);
+            }
+            });
+        </script>
+    </body>
+</html>
