@@ -28,6 +28,10 @@
                 <button>registration</button>
             </div>
         </form> 
+        <form id="add-text">
+            <input type="text" id="text-input">
+            <button id="button-text">add</button>
+        </form>
         <script>
             const form = document.getElementById('sign-up');
             const input = document.querySelector('input[type="number"]');
@@ -71,6 +75,17 @@
             document.body.appendChild(p);
             }
             });
+            let inputText = document.getElementById ("text-input");
+            let buttonText =document.getElementById ("button-text");
+            buttonText.addEventListener ("click", function (e) {
+                const li = document.createElement('li');
+                const itemsArray = [];
+                itemsArray.push(inputText);
+                document.body.appendChild(li);
+            });
+
+
+
         </script>
     </body>
 </html>
